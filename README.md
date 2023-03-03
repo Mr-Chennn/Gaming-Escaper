@@ -8,7 +8,21 @@
 - As the game progresses, more features will be added to enhance the user experience. The character will be equipped with a weapon to shoot down the enemies, earning the player additional points. Additionally, the character will have the option to collect the dead bodies of enemies, thereby earning extra points.
 
 - Overall, Project Escaper promises to be an exciting and entertaining game that will challenge players' skills and provide an enjoyable experience.
-        
+
+## Background of the game
+
+The game takes place in a dystopian future where a powerful and corrupt organization known as the Dominion has taken control of the world. The Dominion has created an army of robotic soldiers and brainwashed humans to do their bidding. The few remaining free people are forced to live in hiding and constantly evade the Dominion's grasp.
+
+The player takes on the role of a skilled fighter who has managed to elude the Dominion's grasp for years. The character has a personal stake in fighting against the Dominion, as their family was captured and enslaved by the organization.
+
+As the game progresses, the player discovers that there are still some good people left in the world who are being controlled by the Dominion. The character makes it their mission to rescue these people and bring them onto their team, building a network of allies to fight against the Dominion.
+
+The enemies that the character must face come in many forms, from robotic soldiers to brainwashed humans to powerful Dominion leaders. Each enemy has unique abilities and weaknesses, and the character must strategize to defeat them.
+
+Along the way, the character discovers caches of valuable resources and weapons that they can use to upgrade their equipment and abilities. They must balance the need to collect resources with the need to rescue allies and evade enemies.
+
+Ultimately, the character must defeat the Dominion and liberate the world from their grasp. It will be a difficult and dangerous journey, but with skill, strategy, and a bit of luck, the character can emerge victorious.
+
 ## Project Escaper Plan
 
 ### Overview
