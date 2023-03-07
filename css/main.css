@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+.backgroundOfGame {
+    background-color: rgb(24, 47, 176);
+    height: 100vh;
+    width: 100vw;
+
+}
+
+#gameDisplay {
+    background-color: aquamarine;
+    height: 60vh;
+    width: 70vw;
+
+    position: relative;
+    left: 15vw;
+    top: 20vh;
+    overflow: hidden;
+}
+
+#character {
+    background-color: antiquewhite;
+    position: absolute;
+    bottom: 0;
+}
+
+.enemy1 {
+    width: 5vh;
+    height: 5vh;
+    background-color: black;
+    position: absolute;
+}
+
+.enemyLeft {
+    width: 5vh;
+    height: 5vh;
+    background-color: rgb(217, 28, 28);
+    position: absolute;
+}
+
+.enemyRight {
+    width: 5vh;
+    height: 5vh;
+    background-color: rgb(28, 44, 217);
+    position: absolute;
+}
+
+.defaultWeapon {
+    width: 1vh;
+    height: 1vh;
+    background-color: rgb(239, 15, 134);
+    position: absolute;
+}
