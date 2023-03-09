@@ -3,6 +3,48 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: pixFont;
+    src: url(../font/1up.ttf);
+}
+
+audio {
+    display: none;
+}
+
+#menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 50px;
+    font-family: "pixFont";
+    color: white;
+}
+
+button {
+    padding: 20px 50px;
+    font-size: 24px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #ff6659;
+}
+
+
+
 
 .backgroundOfGame {
     background-color: rgb(24, 47, 176);
@@ -12,41 +54,39 @@
 }
 
 #gameDisplay {
-    background-color: aquamarine;
-    height: 60vh;
-    width: 70vw;
-
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/frame.jpg");
+    background-size: cover;
     position: relative;
-    left: 15vw;
-    top: 20vh;
+
     overflow: hidden;
 }
 
 #character {
-    background-color: antiquewhite;
+    background-image: url("../images/charactor.png");
+    background-size: 100%;
     position: absolute;
     bottom: 0;
 }
 
 .enemy1 {
-    width: 5vh;
-    height: 5vh;
-    background-color: black;
+    position: absolute;
+    display: inline-block;
     position: absolute;
 }
 
 .enemyLeft {
-    width: 5vh;
-    height: 5vh;
-    background-color: rgb(217, 28, 28);
+    display: inline-block;
     position: absolute;
 }
 
 .enemyRight {
-    width: 5vh;
-    height: 5vh;
-    background-color: rgb(28, 44, 217);
+    display: inline-block;
     position: absolute;
+
+
+
 }
 
 .defaultWeapon {
@@ -54,4 +94,35 @@
     height: 1vh;
     background-color: rgb(239, 15, 134);
     position: absolute;
+    background-image: url("../images/bullets.gif");
+    background-size: cover;
+}
+
+#scoreBoard {
+    position: absolute;
+    text-align: center;
+    background-image: url("../images/scoreBg.png");
+    background-size: cover;
+    height: 9vh;
+    width: 30vh;
+    left: 0;
+    top: 0;
+
+}
+
+#scores {
+    font-family: "pixFont";
+    font-size: 5vh;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    margin-left: 2vh;
+    line-height: 10vh;
+}
+
+#scoresCoin {
+    display: inline-block;
+    height: 5vh;
+    margin-left: 5vh;
+
 }
