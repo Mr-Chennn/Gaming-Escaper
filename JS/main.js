@@ -50,7 +50,7 @@ class Game {
 
         this.moveControl();
 
-        this.removeControl();
+        // this.removeControl();
     }
 
     // creat enemies randomly with interval time
@@ -79,23 +79,43 @@ class Game {
     // move control center: controll all the move speed of enemies and bullets
     moveControl() {
         setInterval(() => {
-            this.enemiesTopArr.forEach((enemyInstance) => {
+            this.enemiesTopArr.forEach((enemyInstance, index) => {
                 enemyInstance.moveDown();
                 this.detectCollision(enemyInstance);
+
+
+                if (enemyInstance.positionY < 2) {
+                    enemyInstance.enemyElmTop.remove(); //remove from dom
+                    this.enemiesTopArr.splice(index, 1); //remove from array
+                }
+
             });
         }, 100);
 
         setInterval(() => {
-            this.enemiesLeftArr.forEach((enemyInstance) => {
+            this.enemiesLeftArr.forEach((enemyInstance, index) => {
                 enemyInstance.moveRight();
                 this.detectCollision(enemyInstance);
+
+
+                if (enemyInstance.positionX > 100) {
+                    enemyInstance.enemyElmLeft.remove(); //remove from dom
+                    this.enemiesLeftArr.splice(index, 1); //remove from array
+                }
             });
         }, 150);
 
         setInterval(() => {
-            this.enemiesRightArr.forEach((enemyInstance) => {
+            this.enemiesRightArr.forEach((enemyInstance, index) => {
                 enemyInstance.moveLeft();
                 this.detectCollision(enemyInstance);
+
+
+                if (enemyInstance.positionX < 0) {
+                    enemyInstance.enemyElm.remove(); //remove from dom
+                    this.enemiesRightArr.splice(index, 1); //remove from array
+                }
+
             });
         }, 100);
 
@@ -253,31 +273,31 @@ class Game {
         }
     }
 
-    removeControl() {
+    // removeControl() {
 
-        //remove enemies beyond the board
-        setInterval(() => {
-            const allEnemy = document.querySelectorAll('.enemyAll');
-            const allEnemyArry = Array.from(allEnemy);
-            for (let i = 0; i < allEnemyArry.length; i++) {
-                if (allEnemyArry[i].style.bottom === '-30vh' || allEnemyArry[i].style.left === '-20vw' || allEnemyArry[i].style.left === '120vw') {
-                    allEnemyArry[i].remove();
+    //     //remove enemies beyond the board
+    //     setInterval(() => {
+    //         const allEnemy = document.querySelectorAll('.enemyAll');
+    //         const allEnemyArry = Array.from(allEnemy);
+    //         for (let i = 0; i < allEnemyArry.length; i++) {
+    //             if (allEnemyArry[i].style.bottom === '-30vh' || allEnemyArry[i].style.left === '-20vw' || allEnemyArry[i].style.left === '120vw') {
+    //                 allEnemyArry[i].remove();
 
-                }
-            }
-        }, 5)
+    //             }
+    //         }
+    //     }, 5)
 
-        // remove bullets beyond theboard 
-        setInterval(() => {
-            const allBullets = document.querySelectorAll('.defaultWeapon');
-            const allBulletsArr = Array.from(allBullets);
-            for (let i = 0; i < allBulletsArr.length; i++) {
-                if (allBulletsArr[i].style.bottom === '-10vh' || allBulletsArr[i].style.left === '-10vw' || allBulletsArr[i].style.left === '110vw' || allBulletsArr[i].style.bottom === '110vh') {
-                    allBulletsArr[i].remove();
-                }
-            }
-        }, 5)
-    }
+    //     // remove bullets beyond theboard 
+    //     setInterval(() => {
+    //         const allBullets = document.querySelectorAll('.defaultWeapon');
+    //         const allBulletsArr = Array.from(allBullets);
+    //         for (let i = 0; i < allBulletsArr.length; i++) {
+    //             if (allBulletsArr[i].style.bottom === '-10vh' || allBulletsArr[i].style.left === '-10vw' || allBulletsArr[i].style.left === '110vw' || allBulletsArr[i].style.bottom === '110vh') {
+    //                 allBulletsArr[i].remove();
+    //             }
+    //         }
+    //     }, 5)
+    // }
 
 
 

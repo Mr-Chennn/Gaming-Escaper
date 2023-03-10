@@ -126,3 +126,14 @@ button:hover {
     margin-left: 5vh;
 
 }
+
+.gameOver {
+    background-image: url("../images/gameOver.png");
+    background-size: cover;
+    width: 30vw;
+    height: 19.11vw;
+    position: fixed;
+    left: 35vw;
+    top: 40vh;
+
+}
