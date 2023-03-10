@@ -97,7 +97,7 @@ class Game {
                 enemyInstance.moveLeft();
                 this.detectCollision(enemyInstance);
             });
-        }, 200);
+        }, 100);
 
 
         // let bullets move
@@ -105,28 +105,29 @@ class Game {
 
             this.shootTopArr.forEach(e => {
                 e.moveTop();
-                // this.detectCollisionShooting(e);
-                // this.scoreSystem.scores();
+                this.detectCollisionShooting(e);
+                //     this.scoreSystem.scores();
             })
             this.shootLeftArr.forEach(e => {
                 e.moveLeft();
-                // this.detectCollisionShooting(e);
-                // this.scoreSystem.scores();
+                this.detectCollisionShooting(e);
+                //    this.scoreSystem.scores();
             })
             this.shootDownArr.forEach(e => {
                 e.moveDown();
-                // this.detectCollisionShooting(e);
-                // this.scoreSystem.scores();
+                this.detectCollisionShooting(e);
+                //    this.scoreSystem.scores();
             })
             this.shootRightArr.forEach(e => {
                 e.moveRight();
-                // this.detectCollisionShooting(e);
-                // this.scoreSystem.scores();
+                this.detectCollisionShooting(e);
+                //     this.scoreSystem.scores();
             })
-            this.shootArr.forEach(e => {
+
+            /*        this.shootArr.forEach(e => {
                 this.detectCollisionShooting(e);
                 this.scoreSystem.scores();
-            })
+                   })*/
         }, 50)
 
     }
@@ -178,11 +179,20 @@ class Game {
             this.charactor.height + this.charactor.positionY > enemyInstance.positionY &&
             enemyInstance.width + enemyInstance.positionX > this.charactor.positionX
         ) {
-
-            window.location.href = "./gameover.html";
+            this.gameOver();
+            //  window.location.href = "./gameover.html";
         }
     }
 
+    gameOver() {
+        const removeCharactor = document.getElementById("character");
+        removeCharactor.remove();
+        const gameOverDiv = document.createElement("div");
+        gameOverDiv.classList.add('gameOver');
+        const board = document.getElementById("gameDisplay");
+        board.appendChild(gameOverDiv);
+
+    }
 
     // detect collision between bullets and enemies
     detectCollisionShooting(shootInstance) {
@@ -195,8 +205,14 @@ class Game {
                 this.enemiesTopArr[i].width + this.enemiesTopArr[i].positionX > shootInstance.positionX
             ) {
 
+                //remove dom element
                 const allTopEnemy = document.getElementsByClassName("enemy1");
                 allTopEnemy[i].remove();
+
+                //remove enemy from array of enemies
+                this.enemiesTopArr.splice(i, 1);
+
+                //update score
                 this.scoreSystem.score++;
             }
 
@@ -212,6 +228,7 @@ class Game {
             ) {
                 const allLeftEnemy = document.getElementsByClassName("enemyLeft");
                 allLeftEnemy[i].remove();
+                this.enemiesLeftArr.splice(i, 1);
                 this.scoreSystem.score++;
             }
 
@@ -227,6 +244,9 @@ class Game {
             ) {
                 const allRightEnemy = document.getElementsByClassName("enemyRight");
                 allRightEnemy[i].remove();
+
+                this.enemiesRightArr.splice(i, 1);
+
                 this.scoreSystem.score++;
             }
 
@@ -242,6 +262,7 @@ class Game {
             for (let i = 0; i < allEnemyArry.length; i++) {
                 if (allEnemyArry[i].style.bottom === '-30vh' || allEnemyArry[i].style.left === '-20vw' || allEnemyArry[i].style.left === '120vw') {
                     allEnemyArry[i].remove();
+
                 }
             }
         }, 5)
