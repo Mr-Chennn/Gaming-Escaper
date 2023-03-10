@@ -9,13 +9,15 @@ Enemies that appear and move from different directions
 
  */
 
+
 const startButton = document.getElementById('startButton');
 const menu = document.getElementById('menu');
 
 startButton.addEventListener('click', () => {
-    // 这里写开始游戏的逻辑
+
     menu.style.display = 'none';
     const newGame = new Game();
+    const bgm = new Bgm();
     newGame.start();
 
     console.log('Starting game...');
@@ -38,7 +40,6 @@ class Game {
         this.scoreSystem = new ScoreSystem();
         this.charactor = new Charactor();
         this.weapon = null;
-        this.bgm = new Bgm();
     }
 
 
@@ -50,7 +51,6 @@ class Game {
 
         this.moveControl();
 
-        // this.removeControl();
     }
 
     // creat enemies randomly with interval time
@@ -126,28 +126,25 @@ class Game {
             this.shootTopArr.forEach(e => {
                 e.moveTop();
                 this.detectCollisionShooting(e);
-                //     this.scoreSystem.scores();
+                this.scoreSystem.scores();
             })
             this.shootLeftArr.forEach(e => {
                 e.moveLeft();
                 this.detectCollisionShooting(e);
-                //    this.scoreSystem.scores();
+                this.scoreSystem.scores();
             })
             this.shootDownArr.forEach(e => {
                 e.moveDown();
                 this.detectCollisionShooting(e);
-                //    this.scoreSystem.scores();
+                this.scoreSystem.scores();
             })
             this.shootRightArr.forEach(e => {
                 e.moveRight();
                 this.detectCollisionShooting(e);
-                //     this.scoreSystem.scores();
+                this.scoreSystem.scores();
             })
 
-            /*        this.shootArr.forEach(e => {
-                this.detectCollisionShooting(e);
-                this.scoreSystem.scores();
-                   })*/
+
         }, 50)
 
     }
@@ -209,6 +206,16 @@ class Game {
         removeCharactor.remove();
         const gameOverDiv = document.createElement("div");
         gameOverDiv.classList.add('gameOver');
+
+        const restartButton = document.createElement("button");
+        restartButton.innerHTML = "Restart";
+        restartButton.addEventListener("click", () => {
+            window.location.reload();
+        });
+        restartButton.style.position = 'absolute'; // 添加position: absolute样式
+        restartButton.style.bottom = '10vh'; // 添加bottom: 0样式
+        restartButton.style.left = '10vw';
+        gameOverDiv.appendChild(restartButton);
         const board = document.getElementById("gameDisplay");
         board.appendChild(gameOverDiv);
 
@@ -272,33 +279,6 @@ class Game {
 
         }
     }
-
-    // removeControl() {
-
-    //     //remove enemies beyond the board
-    //     setInterval(() => {
-    //         const allEnemy = document.querySelectorAll('.enemyAll');
-    //         const allEnemyArry = Array.from(allEnemy);
-    //         for (let i = 0; i < allEnemyArry.length; i++) {
-    //             if (allEnemyArry[i].style.bottom === '-30vh' || allEnemyArry[i].style.left === '-20vw' || allEnemyArry[i].style.left === '120vw') {
-    //                 allEnemyArry[i].remove();
-
-    //             }
-    //         }
-    //     }, 5)
-
-    //     // remove bullets beyond theboard 
-    //     setInterval(() => {
-    //         const allBullets = document.querySelectorAll('.defaultWeapon');
-    //         const allBulletsArr = Array.from(allBullets);
-    //         for (let i = 0; i < allBulletsArr.length; i++) {
-    //             if (allBulletsArr[i].style.bottom === '-10vh' || allBulletsArr[i].style.left === '-10vw' || allBulletsArr[i].style.left === '110vw' || allBulletsArr[i].style.bottom === '110vh') {
-    //                 allBulletsArr[i].remove();
-    //             }
-    //         }
-    //     }, 5)
-    // }
-
 
 
 }
@@ -574,8 +554,8 @@ class ScoreSystem {
 class Bgm {
     constructor() {
         var bgm = document.getElementById("bgm");
-        bgm.autoplay = true;
         bgm.loop = true;
+        bgm.play();
     }
 
 }
